@@ -43,7 +43,7 @@ Include all four methods as well as the main method in a single class called Adv
         System.out.println(challengeTwoAnswer);
         System.out.println(challengeThreeAnswer);
         System.out.println(challengeFourAnswer);
-        writeFileAllAnswers("AdventureTime.txt", challengeOneAnswer, challengeTwoAnswer, challengeThreeAnswer, challengeFourAnswer);
+        writeFileAllAnswers("/Users/oliverc/Desktop/11CS/CS.11.06-Lab-6.1-master/src/AdventureTime.txt", challengeOneAnswer, challengeTwoAnswer, challengeThreeAnswer, challengeFourAnswer);
 
     }
 
@@ -109,17 +109,17 @@ Include all four methods as well as the main method in a single class called Adv
      * @return Answer to Challenge 3
      * @throws FileNotFoundException
      */
-    public static int challengeThree(String fileName) throws FileNotFoundException {
+    public static int challengeThree(String fileName) throws FileNotFoundException { // should be 7 digits
         String[] course = readFileTwo(fileName);
         int dist = 0;
         int depth = 0;
         for (String i : course) {
             if (i.contains("forward")) {
-                dist += i.charAt(8);
+                dist += i.charAt(8) - '0';
             } else if (i.contains("up")) {
-                depth -= i.charAt(3);
+                depth -= i.charAt(3) - '0';
             } else if (i.contains("down")) {
-                depth += i.charAt(5);
+                depth += i.charAt(5) - '0';
             }
         }
         
@@ -135,19 +135,19 @@ Include all four methods as well as the main method in a single class called Adv
      * @return Answer to Challenge 4
      * @throws FileNotFoundException
      */
-    public static int challengeFour(String fileName) throws FileNotFoundException {
+    public static int challengeFour(String fileName) throws FileNotFoundException { // should be 10 digits with no negatives
         String[] course = readFileTwo(fileName);
         int dist = 0;
         int depth = 0;
         int aim = 0;
         for (String i : course) {
             if (i.contains("forward")) {
-                dist += i.charAt(8);
-                depth += aim * i.charAt(8);
+                dist += i.charAt(8) - '0';
+                depth += aim * i.charAt(8) - '0';
             } else if (i.contains("up")) {
-                aim -= i.charAt(3);
+                aim -= i.charAt(3) - '0';
             } else if (i.contains("down")) {
-                aim += i.charAt(5);
+                aim += i.charAt(5) - '0';
             }
         }
 
